@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from rpi_hardware_pwm import HardwarePWM
 from time import sleep
