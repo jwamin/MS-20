@@ -1,12 +1,13 @@
+#!/usr/bin/python
+
 from rpi_hardware_pwm import HardwarePWM
 from time import sleep
 from sys import argv
 
-
 try:
 
-    default_freq = 60
-    default_duty = 10
+    default_freq = 50 #hz
+    default_duty = 50 #square wave
     
     print(argv)
     
