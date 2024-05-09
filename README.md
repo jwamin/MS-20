@@ -8,12 +8,14 @@
 
 * Raspberry PI Hardware-based Pulse Width Modulation can be used as:
     * LFO
-    * inc conjunction with the MS20's external signal processor ESP to putput control voltages
+    * inc conjunction with the MS20's external signal processor ESP to output control voltages
 
 ### Next Steps
 
-* Further investigation
-* frameworkize 
+* PWM inprovements - easing, interesting sounds, better control, "one shot" sounds. 
+* frameworkize
+* keyboard control
+* midi notes to pwm frequency?
 
 Reference
 
