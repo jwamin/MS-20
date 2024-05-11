@@ -1,18 +1,24 @@
 # Pi-MS-20
 
-## Experimentations and tooling into driving Korg MS-20 Modular synth with Raspberry Pi GPIO using minimal additional components
+## Experimentations and tooling into driving Korg MS-20 Semi-modular synth with Raspberry Pi GPIO using minimal additional components
 
 ### Outline
 
-* Direct Control Votages are out - 
+#### Control Voltages
 
-* Raspberry PI Hardware-based Pulse Width Modulation can be used as:
+* You'd need a DAC to generate control voltages using RPi GPIO.
+
+#### Pulse Width Modulation (PWM)
+
+* Raspberry PI Hardware-based PWM's 0-3v3 can be used standalone as:
+    * External Signal Source
     * LFO
-    * inc conjunction with the MS20's external signal processor ESP to output control voltages
+
+* In conjunction with the MS20's external signal processor (ESP) F-C Converter Patch connector to output control voltages
 
 ### Next Steps
 
-* PWM inprovements - easing, interesting sounds, better control, "one shot" sounds. 
+* PWM improvements - easing, interesting sounds, better control, "one shot" sounds. 
 * frameworkize
 * keyboard control
 * midi notes to pwm frequency?

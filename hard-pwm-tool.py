@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from sys import argv
-from common import uline_print, start_pwm, PWM_CHANNEL, PWM_CHIP,PWM_DUTY,PWM_FREQUENCY
+from common import uline_print, start_pwm, PWM_CHANNEL, PWM_CHIP, PWM_DEFAULT_DUTY,PWM_FREQUENCY
 
 print("\n")
 uline_print("Hardware PWM Test Tool")
@@ -9,7 +9,7 @@ print("Pins are configured in /boot/config.txt on your RPi")
 print(f"channel {PWM_CHANNEL}, pin 13, chip {PWM_CHIP}")
 print("Keyboard interrupt with Ctrl-C to stop Pulse")
 default_freq = PWM_FREQUENCY 
-default_duty = PWM_DUTY
+default_duty = PWM_DEFAULT_DUTY
 cycle = None
 rise_and_fall = False
 
