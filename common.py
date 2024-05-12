@@ -1,5 +1,6 @@
 from rpi_hardware_pwm import HardwarePWM
 from easing_functions import *
+from pitchtools import n2f
 from time import sleep
 from typing import Callable
 import enum
@@ -120,4 +121,40 @@ def pwm_easing(easingFunction:Callable = QuinticEaseInOut,
             currentTime = 0
     except KeyboardInterrupt as kbi:
         print("\n")
+        pwm.stop()
+
+
+def pulse_frequency_mod_easing(easingFunction:Callable = LinearInOut, note_start = "C2", note_end = "C3", start_time = 1, duration = 5, hold_time = 3):
+
+    try:
+
+        start_freq = n2f(note_start)
+        end_freq = n2f(note_end)
+
+        # Start PWM
+        pwm = HardwarePWM(pwm_channel=PWM_CHANNEL, hz=start_freq, chip=PWM_CHIP)
+        pwm.start(PWM_DEFAULT_DUTY)
+
+        sleep(start_time)
+
+        easing = easingFunction(start_freq,end_freq,duration)
+
+        currentTime = 0
+
+        while currentTime < duration:
+            value = easing(currentTime)
+            pwm.change_frequency(value)
+            next = currentTime + FPS_60
+            currentTime = next 
+            sleep(FPS_60)
+
+        sleep(hold_time)
+
+        pwm.stop()
+
+    except KeyboardInterrupt as kbd:
+        logger.error(f"keyboard interrupt {kbd}")
+        pwm.stop()
+    except Exception as e:
+        logger.error(f"some other exception {e}")
         pwm.stop()
